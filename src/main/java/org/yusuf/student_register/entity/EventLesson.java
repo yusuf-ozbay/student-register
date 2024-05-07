@@ -24,15 +24,19 @@ public class EventLesson {
     @OneToOne
     @JoinColumn(name = "lesson_id")
     private Lesson lesson;
+
     @ManyToOne
     @JoinColumn(name = "groupId")
     private Group group;
+
     private LocalDate date;
 
-    public EventLesson(Lesson lesson,UUID eventLessonId)
-    {
-        this.lesson=lesson;
-        this.eventLessonId=eventLessonId;
+
+
+
+    public EventLesson(Lesson lesson, UUID eventLessonId) {
+        this.lesson = lesson;
+        this.eventLessonId = eventLessonId;
     }
 
 }

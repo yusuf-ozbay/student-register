@@ -26,10 +26,15 @@ public class MainLesson {
     private LocalDate plannedStartDate;
     private LocalDate plannedEndDate;
 
-
     @OneToOne
     @JoinColumn(name = "lessonId")
     private Lesson lesson;
+
+
+
+
+
+
 
 
 public MainLesson(Lesson lesson,UUID id){

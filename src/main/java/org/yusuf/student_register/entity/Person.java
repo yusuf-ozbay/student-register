@@ -19,6 +19,7 @@ public class Person extends BaseEntity{
     private String job;
     private String phoneNumber;
 
+
     @Override
     public String toString() {
         return this.firstName+" "+this.lastName;

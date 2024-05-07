@@ -32,6 +32,8 @@ public class PrivateLesson {
     @JoinColumn(name = "groupId")
     private Group group;
 
+
+
     public PrivateLesson(Lesson lesson,UUID privateLessonId)
     {
         this.lesson=lesson;
