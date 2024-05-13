@@ -11,8 +11,9 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 public class EventLessonDto {
-    private UUID eventLessonId;
+    private UUID id;
     private LessonDto lesson;
-    private GroupDto group;
+    private UUID teacherId;
+    private String name;
     private LocalDate date;
 }

@@ -19,25 +19,20 @@ public class PrivateLesson {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID privateLessonId;
-
-    @ElementCollection
-    private List<LocalDate> dates;
+    private UUID id;
 
     @OneToOne
     @JoinColumn(name = "lessonId")
     private Lesson lesson;
 
-    @ManyToOne
-    @JoinColumn(name = "groupId")
-    private Group group;
+    @ElementCollection
+    private List<LocalDate> dates;
 
 
-
-    public PrivateLesson(Lesson lesson,UUID privateLessonId)
+    public PrivateLesson(Lesson lesson,UUID id)
     {
         this.lesson=lesson;
-        this.privateLessonId=privateLessonId;
+        this.id=id;
     }
 
 }

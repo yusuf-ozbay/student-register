@@ -10,14 +10,17 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class GroupStudentDto {
-
+public class MainLessonStudentDto {
     private UUID id;
     private UUID studentId;
-    private String studentFullName;
-    private UUID groupId;
-    private String groupName;
+    private String studentName;
     private LocalDate joinDate;
     private boolean activeStatus;
+
+    public MainLessonStudentDto(UUID studentId, LocalDate joinDate, boolean activeStatus) {
+        this.studentId = studentId;
+        this.joinDate=joinDate;
+        this.activeStatus=activeStatus;
+    }
 
 }

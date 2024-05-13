@@ -14,6 +14,6 @@ import java.util.UUID;
 public class LessonDto {
     private UUID lessonId;
     private String name;
-    private List<LessonTeacherDto> lessonTeachers;
+    private List<LessonTeacherDto> teachers;
 
 }

@@ -30,6 +30,7 @@ public class StudentServiceImpl implements StudentService {
         return StudentMapper.toDto(studentReopsitory.findById(id).orElse(null));
     }
 
+
     @Override
     public void delete(UUID id) {
         studentReopsitory.deleteById(id);
@@ -39,9 +40,9 @@ public class StudentServiceImpl implements StudentService {
     public StudentDto update(StudentDto studentDto, UUID id) {
 
         Student student = studentReopsitory.findById(id).orElseThrow(
-
-                () -> new EntityNotFoundException("this entity  not found")
+                ()-> new EntityNotFoundException("this entity not found")
         );
+
 
         student.setFirstName(studentDto.getFirstName());
         student.setLastName(studentDto.getLastName());
@@ -49,7 +50,13 @@ public class StudentServiceImpl implements StudentService {
         student.setJob(studentDto.getJob());
         student.setPhoneNumber(studentDto.getPhoneNumber());
         student.setReferance(studentDto.getReference());
-
+        studentReopsitory.save(student);
         return StudentMapper.toDto(student);
     }
+
+    @Override
+    public Student findEntityById(UUID id) {
+        return studentReopsitory.findById(id).orElse(null);
+    }
+
 }

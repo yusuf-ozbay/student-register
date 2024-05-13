@@ -7,26 +7,26 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.UUID;
+
 
 @Entity
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class GroupStudent extends BaseEntity {
+public class MainLessonStudent {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
 
-
-    private LocalDate joinDate;
-    private boolean activeStatus;
 
     @OneToOne
     @JoinColumn(name = "student_id")
     private Student student;
-
-    @ManyToOne
-    @JoinColumn(name = "group_id")
-    private Group group;
-
-
-
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "main_lesson_id")
+    private MainLesson mainLesson;
+    private boolean isActive;
+    private LocalDate joinDate;
 }

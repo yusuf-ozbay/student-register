@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 
 @Entity
@@ -14,20 +15,20 @@ import java.time.LocalDate;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class LessonTeacher extends BaseEntity{
+public class LessonTeacher {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
 
-
-    private LocalDate joindate;
-    private boolean activeStatus;
-
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "lesson_id")
-    private Lesson lesson;
-
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "teacher_id")
     private Teacher teacher;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "lesson_id")
+
+    private Lesson lesson;
+    private LocalDate joinDate;
+    private boolean activeStatus;
 
 }

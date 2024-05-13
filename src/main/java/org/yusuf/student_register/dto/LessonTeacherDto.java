@@ -19,4 +19,10 @@ public class LessonTeacherDto {
     private String teacherName;
     private LocalDate joinDate;
     private boolean activeStatus;
+
+    public LessonTeacherDto(UUID teacherId,LocalDate joinDate, boolean activeStatus){
+        this.teacherId=teacherId;
+        this.joinDate=joinDate;
+        this.activeStatus=activeStatus;
+    }
 }

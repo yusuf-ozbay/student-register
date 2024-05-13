@@ -13,9 +13,10 @@ import java.util.UUID;
 @Builder
 public class PrivateLessonDto {
 
-    private UUID privateLessonId;
-    private List<LocalDate> dates;
+    private UUID id;
     private LessonDto lesson;
-    private GroupDto group;
+    private UUID teacherId;
+    private String name;
+    private List<LocalDate> dates;
 
 }

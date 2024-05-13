@@ -17,6 +17,4 @@ public class StudentResponse {
     private String job;
     private String reference;
     private String phoneNumber;
-
-    //gruba girdiği zaman gösterilebilir
 }

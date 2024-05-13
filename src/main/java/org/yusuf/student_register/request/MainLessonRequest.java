@@ -15,6 +15,7 @@ import java.util.UUID;
 public class MainLessonRequest {
     private String name;
     private UUID teacherId;
+    private List<UUID> mainLessonStudentIds;
     private List<DayOfWeek> daysOfWeek;
     private LocalDate plannedStartDate;
     private LocalDate plannedEndDate;

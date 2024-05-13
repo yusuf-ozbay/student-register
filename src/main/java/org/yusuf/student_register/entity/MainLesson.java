@@ -17,31 +17,27 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MainLesson {
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+
+    @OneToMany(mappedBy = "mainLesson", cascade = CascadeType.ALL)
+    private List<MainLessonStudent> mainLessonStudents;
+
+    @OneToOne
+    @JoinColumn(name = "lessonId")
+    private Lesson lesson;
 
     @ElementCollection
     private List<DayOfWeek> daysOfWeek;
     private LocalDate plannedStartDate;
     private LocalDate plannedEndDate;
 
-    @OneToOne
-    @JoinColumn(name = "lessonId")
-    private Lesson lesson;
-
-
-
-
-
-
-
-
-public MainLesson(Lesson lesson,UUID id){
-    this.lesson=lesson;
-    this.id=id;
-}
-
-
+    public MainLesson(Lesson lesson,UUID id)
+    {
+        this.lesson=lesson;
+        this.id=id;
+    }
 
 }

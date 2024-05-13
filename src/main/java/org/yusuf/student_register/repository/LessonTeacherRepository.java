@@ -7,4 +7,6 @@ import org.yusuf.student_register.entity.LessonTeacher;
 import java.util.UUID;
 
 public interface LessonTeacherRepository  extends JpaRepository<LessonTeacher, UUID> {
+    LessonTeacher findLessonTeacherByLesson_LessonIdAndTeacherId(UUID lessonId, UUID teacherId);
+
 }

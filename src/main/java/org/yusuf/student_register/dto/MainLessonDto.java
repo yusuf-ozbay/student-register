@@ -13,9 +13,9 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 public class MainLessonDto {
-
     private UUID id;
     private LessonDto lesson;
+    private List<MainLessonStudentDto> mainLessonStudentDtos;
     private UUID teacherId;
     private String name;
     private List<DayOfWeek> daysOfWeek;

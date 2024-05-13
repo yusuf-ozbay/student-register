@@ -20,8 +20,8 @@ public class Lesson {
     private UUID lessonId;
     private String name;
 
-    @OneToMany(mappedBy = "leson",cascade = CascadeType.ALL)
-    private List<LessonTeacher> lessonTeachers;
 
+    @OneToMany(mappedBy = "lesson", cascade = CascadeType.ALL)
+    private List<LessonTeacher> lessonTeachers;
 
 }

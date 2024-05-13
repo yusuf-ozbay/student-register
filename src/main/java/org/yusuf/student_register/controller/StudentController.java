@@ -3,6 +3,8 @@ package org.yusuf.student_register.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.yusuf.student_register.controller.mapper.StudentMapper;
 import org.yusuf.student_register.request.StudentRequest;
@@ -16,25 +18,24 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class StudentController {
 
+
     @Autowired
     StudentService studentService;
 
+
     @PostMapping("/create")
-    public StudentResponse createStudent(@RequestBody StudentRequest studentRequest) {
-
-        return StudentMapper.toRespose(studentService.save(StudentMapper.toDto(studentRequest)));
-
+    public ResponseEntity<StudentResponse> createStudent(@RequestBody StudentRequest studentRequest) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(StudentMapper.toRespose(studentService.save(StudentMapper.toDto(studentRequest))))  ;
     }
 
     @GetMapping("/getById/{id}")
-    public StudentResponse getStudentById(@PathVariable UUID id) {
-
-        return StudentMapper.toRespose(studentService.findById(id));
+    public ResponseEntity<StudentResponse> getStudentById(@PathVariable UUID id) {
+        return ResponseEntity.status(HttpStatus.OK).body( StudentMapper.toRespose(studentService.findById(id)));
     }
 
     @PutMapping("/update/{id}")
-    public StudentResponse uptadeStudent(@PathVariable UUID id, @RequestBody StudentRequest studentRequest) {
-        return StudentMapper.toRespose(studentService.update(StudentMapper.toDto(studentRequest),id));
+    public ResponseEntity<StudentResponse> uptadeStudent(@PathVariable UUID id, @RequestBody StudentRequest studentRequest) {
+        return ResponseEntity.status(HttpStatus.OK).body(StudentMapper.toRespose(studentService.update(StudentMapper.toDto(studentRequest),id))) ;
     }
 
     @DeleteMapping("/delete/{id}")

@@ -6,4 +6,5 @@ import org.yusuf.student_register.entity.Student;
 import java.util.UUID;
 
 public interface StudentReopsitory extends JpaRepository<Student, UUID> {
+
 }

@@ -18,5 +18,4 @@ public class StudentRequest {
     private String job;
     private String reference="";
     private String phoneNumber;
-
 }
